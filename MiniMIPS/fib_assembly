@@ -1,0 +1,53 @@
+#	register	|	usage		|
+# 	_________________________________
+#	$t6		|	memory offset	|
+#	$t7		|	loop counter	|
+#	$t1		|	first		|
+#	$t2		|	second		|
+#	$a1		|	switch input	|
+#	$v0		|	LED output	|
+
+fibn:
+	# Loop setup
+	addi $t6, $0, 2 # initialize offset = 2 because the first two Fibonacci numbers are manually written
+	addi $t7, $0, 6 # initialize n = (12/2) = 7 because I write two Fibonacci numbers in each iteration
+	add $t1, $0, $0 # initialize first = 0
+	addi $t2, $0, 1 # initialize second = 1
+	
+	# Manually set the first two Fibonacci numbers
+	sb $0, 128($0)
+	sb $t2, 128($t2)
+	
+loopstart:
+	# Exit the loop when n = 0
+	beq $t7, $0, loopend
+	
+	# Calculate and store the next two Fibonacci numbers and progress the loop offset by two
+	
+	# first
+	add $t1, $t1, $t2 # f1 = f1 + f2
+	sb $t1, 128($t6)
+	addi $t6, $t6, 1
+	
+	# second
+	add $t2, $t1, $t2 # f2 = f1 + f2
+	sb $t2, 128($t6)
+	addi $t6, $t6, 1
+	
+	# Progress the loop counter
+	addi $t7, $t7, -1 # n --
+	
+	j loopstart # repeat until done
+
+loopend:
+	beq $0, $0, run
+	j exit
+	
+run:
+	# Load the array item at the offset indicated by the switch input into the LED output.
+	lb $t6, 255($0)
+	lb $v0, 128($t6)
+	sb $v0 255($0)
+	j run
+
+exit:
