@@ -10,7 +10,7 @@
 fibn:
 	# Loop setup
 	addi $t6, $0, 2 # initialize offset = 2 because the first two Fibonacci numbers are manually written
-	addi $t7, $0, 6 # initialize n = (12/2) = 7 because I write two Fibonacci numbers in each iteration
+	addi $t7, $0, 6 # initialize n = (12/2) = 6 because I write two Fibonacci numbers in each iteration
 	add $t1, $0, $0 # initialize first = 0
 	addi $t2, $0, 1 # initialize second = 1
 	

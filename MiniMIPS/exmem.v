@@ -28,7 +28,7 @@ module exmem #(parameter DATA_WIDTH=8, parameter ADDR_WIDTH=8)
 	// Declare Wire IO
 	wire IO;
 	
-	// Decode whether or not this is an IO instruction the reads to or writes from memory.
+	// Decode whether or not this is an IO instruction that reads to or writes from memory.
 	assign IO = (addr[7:6] == 2'b11);
 
 	// Declare the RAM variable
@@ -40,7 +40,7 @@ module exmem #(parameter DATA_WIDTH=8, parameter ADDR_WIDTH=8)
 	// Load RAM data from an external file
 	initial begin
 		$display("Loading memory");
-		$readmemh("C:/Users/shem/Documents/ECE3710/MipsLab/fib_hex.dat", ram); // The filepath is specific to my computer.
+		$readmemh("C:/Users/shem/Documents/ECE3710/MipsLab/fib_hex.dat", ram); // This filepath is specific to my computer.
 		$display("done loading");
 	end
 
