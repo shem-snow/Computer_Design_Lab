@@ -1,0 +1,341 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -11.335
+TNS   : -94514.453
+
+Type  : Slow 1100mV 85C Model Setup 'FSM:FSM|current_state.IF'
+Slack : -10.169
+TNS   : -148.796
+
+Type  : Slow 1100mV 85C Model Setup 'PS2Handler:PS2Handler|count[0]'
+Slack : -9.192
+TNS   : -81.401
+
+Type  : Slow 1100mV 85C Model Setup 'PS2Clk'
+Slack : -8.685
+TNS   : -97.699
+
+Type  : Slow 1100mV 85C Model Setup 'FSM:FSM|current_state.Iw'
+Slack : -7.375
+TNS   : -27.999
+
+Type  : Slow 1100mV 85C Model Setup 'VGATopLevel:VGATopLevel|enable'
+Slack : -2.665
+TNS   : -71.532
+
+Type  : Slow 1100mV 85C Model Setup 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -1.800
+TNS   : -11.376
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : -2.228
+TNS   : -2.228
+
+Type  : Slow 1100mV 85C Model Hold 'PS2Clk'
+Slack : 0.216
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'FSM:FSM|current_state.IF'
+Slack : 0.426
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'PS2Handler:PS2Handler|inputDataClk'
+Slack : 0.569
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.718
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'VGATopLevel:VGATopLevel|enable'
+Slack : 0.746
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'FSM:FSM|current_state.Iw'
+Slack : 1.095
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -2.636
+TNS   : -8369.167
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PS2Clk'
+Slack : -0.497
+TNS   : -10.232
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGATopLevel:VGATopLevel|enable'
+Slack : -0.394
+TNS   : -15.803
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'FSM:FSM|current_state.IF'
+Slack : -0.394
+TNS   : -10.844
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -0.394
+TNS   : -5.364
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'FSM:FSM|current_state.Iw'
+Slack : -0.394
+TNS   : -2.150
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -10.842
+TNS   : -89087.553
+
+Type  : Slow 1100mV 0C Model Setup 'FSM:FSM|current_state.IF'
+Slack : -10.049
+TNS   : -147.630
+
+Type  : Slow 1100mV 0C Model Setup 'PS2Handler:PS2Handler|count[0]'
+Slack : -8.884
+TNS   : -79.340
+
+Type  : Slow 1100mV 0C Model Setup 'PS2Clk'
+Slack : -8.396
+TNS   : -92.272
+
+Type  : Slow 1100mV 0C Model Setup 'FSM:FSM|current_state.Iw'
+Slack : -7.476
+TNS   : -28.279
+
+Type  : Slow 1100mV 0C Model Setup 'VGATopLevel:VGATopLevel|enable'
+Slack : -2.541
+TNS   : -68.906
+
+Type  : Slow 1100mV 0C Model Setup 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -1.798
+TNS   : -11.739
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : -2.227
+TNS   : -2.279
+
+Type  : Slow 1100mV 0C Model Hold 'PS2Clk'
+Slack : 0.281
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'FSM:FSM|current_state.IF'
+Slack : 0.337
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'PS2Handler:PS2Handler|inputDataClk'
+Slack : 0.574
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.694
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'VGATopLevel:VGATopLevel|enable'
+Slack : 0.751
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'FSM:FSM|current_state.Iw'
+Slack : 1.115
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -2.636
+TNS   : -7254.617
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PS2Clk'
+Slack : -0.514
+TNS   : -11.116
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGATopLevel:VGATopLevel|enable'
+Slack : -0.394
+TNS   : -15.662
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'FSM:FSM|current_state.IF'
+Slack : -0.394
+TNS   : -10.544
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -0.394
+TNS   : -5.371
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'FSM:FSM|current_state.Iw'
+Slack : -0.394
+TNS   : -2.178
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.138
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -7.493
+TNS   : -55649.523
+
+Type  : Fast 1100mV 85C Model Setup 'FSM:FSM|current_state.IF'
+Slack : -6.628
+TNS   : -94.822
+
+Type  : Fast 1100mV 85C Model Setup 'PS2Clk'
+Slack : -5.507
+TNS   : -69.171
+
+Type  : Fast 1100mV 85C Model Setup 'PS2Handler:PS2Handler|count[0]'
+Slack : -5.221
+TNS   : -43.423
+
+Type  : Fast 1100mV 85C Model Setup 'FSM:FSM|current_state.Iw'
+Slack : -4.193
+TNS   : -15.836
+
+Type  : Fast 1100mV 85C Model Setup 'VGATopLevel:VGATopLevel|enable'
+Slack : -1.238
+TNS   : -31.853
+
+Type  : Fast 1100mV 85C Model Setup 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -0.947
+TNS   : -4.933
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : -1.488
+TNS   : -1.524
+
+Type  : Fast 1100mV 85C Model Hold 'FSM:FSM|current_state.IF'
+Slack : -0.021
+TNS   : -0.021
+
+Type  : Fast 1100mV 85C Model Hold 'PS2Clk'
+Slack : 0.138
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'PS2Handler:PS2Handler|inputDataClk'
+Slack : 0.253
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'VGATopLevel:VGATopLevel|enable'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'FSM:FSM|current_state.Iw'
+Slack : 0.519
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.642
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -2.636
+TNS   : -5633.157
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PS2Clk'
+Slack : -0.696
+TNS   : -13.876
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -0.151
+TNS   : -0.430
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'FSM:FSM|current_state.IF'
+Slack : -0.094
+TNS   : -0.804
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGATopLevel:VGATopLevel|enable'
+Slack : 0.078
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'FSM:FSM|current_state.Iw'
+Slack : 0.132
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.261
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -6.774
+TNS   : -47694.188
+
+Type  : Fast 1100mV 0C Model Setup 'FSM:FSM|current_state.IF'
+Slack : -6.088
+TNS   : -88.895
+
+Type  : Fast 1100mV 0C Model Setup 'PS2Handler:PS2Handler|count[0]'
+Slack : -4.967
+TNS   : -41.006
+
+Type  : Fast 1100mV 0C Model Setup 'PS2Clk'
+Slack : -4.491
+TNS   : -55.234
+
+Type  : Fast 1100mV 0C Model Setup 'FSM:FSM|current_state.Iw'
+Slack : -3.697
+TNS   : -14.057
+
+Type  : Fast 1100mV 0C Model Setup 'VGATopLevel:VGATopLevel|enable'
+Slack : -1.088
+TNS   : -27.729
+
+Type  : Fast 1100mV 0C Model Setup 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -0.777
+TNS   : -3.996
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -1.625
+TNS   : -3.252
+
+Type  : Fast 1100mV 0C Model Hold 'FSM:FSM|current_state.IF'
+Slack : -0.087
+TNS   : -0.087
+
+Type  : Fast 1100mV 0C Model Hold 'PS2Clk'
+Slack : 0.144
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'PS2Handler:PS2Handler|inputDataClk'
+Slack : 0.200
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'VGATopLevel:VGATopLevel|enable'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'FSM:FSM|current_state.Iw'
+Slack : 0.462
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.622
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -2.636
+TNS   : -7116.649
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PS2Clk'
+Slack : -0.802
+TNS   : -15.243
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PS2Handler:PS2Handler|inputDataClk'
+Slack : -0.089
+TNS   : -0.174
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'FSM:FSM|current_state.IF'
+Slack : -0.042
+TNS   : -0.105
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGATopLevel:VGATopLevel|enable'
+Slack : 0.095
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'FSM:FSM|current_state.Iw'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PS2Handler:PS2Handler|count[0]'
+Slack : 0.280
+TNS   : 0.000
+
+------------------------------------------------------------

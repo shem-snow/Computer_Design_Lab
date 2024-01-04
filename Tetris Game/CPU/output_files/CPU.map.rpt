@@ -1,0 +1,972 @@
+Analysis & Synthesis report for CPU
+Mon Dec 11 14:17:44 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |cpu|FSM:FSM|current_state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Registers Added for RAM Pass-Through Logic
+ 16. Registers Packed Into Inferred Megafunctions
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0|altsyncram_m8n1:auto_generated
+ 19. Parameter Settings for User Entity Instance: datapath:datapath
+ 20. Parameter Settings for User Entity Instance: datapath:datapath|regfile:regfile
+ 21. Parameter Settings for User Entity Instance: datapath:datapath|Alu:alu
+ 22. Parameter Settings for User Entity Instance: datapath:datapath|regMux:aluInput1
+ 23. Parameter Settings for User Entity Instance: datapath:datapath|regMux:middleMux
+ 24. Parameter Settings for User Entity Instance: datapath:datapath|regMux:aluInput2
+ 25. Parameter Settings for User Entity Instance: datapath:datapath|regMux:reginput
+ 26. Parameter Settings for User Entity Instance: FSM:FSM
+ 27. Parameter Settings for User Entity Instance: memory:memIO|exmem2:exmem
+ 28. Parameter Settings for Inferred Entity Instance: memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0
+ 29. altsyncram Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "VGATopLevel:VGATopLevel|VGAtimer:control"
+ 31. Port Connectivity Checks: "PS2Handler:PS2Handler"
+ 32. Port Connectivity Checks: "memory:memIO|ps2FlipFlop:ps2FlipFlop"
+ 33. Port Connectivity Checks: "memory:memIO"
+ 34. Port Connectivity Checks: "datapath:datapath|regMux:aluInput1"
+ 35. Port Connectivity Checks: "datapath:datapath"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Dec 11 14:17:44 2023       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; CPU                                         ;
+; Top-level Entity Name           ; cpu                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 13752                                       ;
+; Total pins                      ; 41                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 3,072                                       ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; cpu                ; CPU                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 2.62        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  32.4%      ;
+;     Processor 3            ;  32.4%      ;
+;     Processor 4            ;  32.4%      ;
+;     Processor 5            ;  32.3%      ;
+;     Processor 6            ;  32.3%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
++------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path               ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; memory.v                                       ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/memory.v                                  ;         ;
+; exmem2.v                                       ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v                                  ;         ;
+; bitgen.v                                       ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/bitgen.v                                  ;         ;
+; VGATopLevel.v                                  ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/VGATopLevel.v                             ;         ;
+; FSM.v                                          ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v                                     ;         ;
+; Decoder.v                                      ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/Decoder.v                                 ;         ;
+; cpu.v                                          ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v                                     ;         ;
+; datapath.v                                     ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v                                ;         ;
+; Alu.v                                          ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/Alu.v                                     ;         ;
+; regfile.v                                      ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v                                 ;         ;
+; regMux.v                                       ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/regMux.v                                  ;         ;
+; PS2Handler.v                                   ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v                              ;         ;
+; VGAtimer.v                                     ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/VGAtimer.v                                ;         ;
+; cmpDecoder.v                                   ; yes             ; User Verilog HDL File        ; C:/Users/samwi/Desktop/ECE3710/CPU/cmpDecoder.v                              ;         ;
+; /users/samwi/desktop/ece3710/assembly/test.dat ; yes             ; Auto-Found Unspecified File  ; /users/samwi/desktop/ece3710/assembly/test.dat                               ;         ;
+; /users/samwi/desktop/ece3710/reg.dat           ; yes             ; Auto-Found Unspecified File  ; /users/samwi/desktop/ece3710/reg.dat                                         ;         ;
+; altsyncram.tdf                                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_m8n1.tdf                         ; yes             ; Auto-Generated Megafunction  ; C:/Users/samwi/Desktop/ECE3710/CPU/db/altsyncram_m8n1.tdf                    ;         ;
++------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 9679      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 6488      ;
+;     -- 7 input functions                    ; 87        ;
+;     -- 6 input functions                    ; 4950      ;
+;     -- 5 input functions                    ; 152       ;
+;     -- 4 input functions                    ; 98        ;
+;     -- <=3 input functions                  ; 1201      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 13752     ;
+;                                             ;           ;
+; I/O pins                                    ; 41        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 3072      ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 13691     ;
+; Total fan-out                               ; 76313     ;
+; Average fan-out                             ; 3.75      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name     ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-----------------+--------------+
+; |cpu                                         ; 6488 (0)            ; 13752 (0)                 ; 3072              ; 0          ; 41   ; 0            ; |cpu                                                                               ; cpu             ; work         ;
+;    |FSM:FSM|                                 ; 57 (49)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |cpu|FSM:FSM                                                                       ; FSM             ; work         ;
+;       |Decoder:dec|                          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|FSM:FSM|Decoder:dec                                                           ; Decoder         ; work         ;
+;    |PS2Handler:PS2Handler|                   ; 30 (30)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |cpu|PS2Handler:PS2Handler                                                         ; PS2Handler      ; work         ;
+;    |VGATopLevel:VGATopLevel|                 ; 62 (1)              ; 24 (1)                    ; 0                 ; 0          ; 0    ; 0            ; |cpu|VGATopLevel:VGATopLevel                                                       ; VGATopLevel     ; work         ;
+;       |VGAtimer:control|                     ; 36 (36)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |cpu|VGATopLevel:VGATopLevel|VGAtimer:control                                      ; VGAtimer        ; work         ;
+;       |bitgen:bg1|                           ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|VGATopLevel:VGATopLevel|bitgen:bg1                                            ; bitgen          ; work         ;
+;    |bigflipflop:flip|                        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |cpu|bigflipflop:flip                                                              ; bigflipflop     ; work         ;
+;    |cmpDecoder:codes|                        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|cmpDecoder:codes                                                              ; cmpDecoder      ; work         ;
+;    |datapath:datapath|                       ; 584 (0)             ; 288 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |cpu|datapath:datapath                                                             ; datapath        ; work         ;
+;       |Alu:alu|                              ; 235 (235)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|datapath:datapath|Alu:alu                                                     ; Alu             ; work         ;
+;       |regMux:aluInput1|                     ; 31 (31)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|datapath:datapath|regMux:aluInput1                                            ; regMux          ; work         ;
+;       |regMux:aluInput2|                     ; 50 (50)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|datapath:datapath|regMux:aluInput2                                            ; regMux          ; work         ;
+;       |regMux:reginput|                      ; 87 (87)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|datapath:datapath|regMux:reginput                                             ; regMux          ; work         ;
+;       |regfile:regfile|                      ; 181 (181)           ; 288 (288)                 ; 0                 ; 0          ; 0    ; 0            ; |cpu|datapath:datapath|regfile:regfile                                             ; regfile         ; work         ;
+;    |flipflop2:statusRegister|                ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|flipflop2:statusRegister                                                      ; flipflop2       ; work         ;
+;    |memory:memIO|                            ; 5748 (4517)         ; 13387 (16)                ; 3072              ; 0          ; 0    ; 0            ; |cpu|memory:memIO                                                                  ; memory          ; work         ;
+;       |exmem2:exmem|                         ; 1231 (1231)         ; 13363 (13363)             ; 3072              ; 0          ; 0    ; 0            ; |cpu|memory:memIO|exmem2:exmem                                                     ; exmem2          ; work         ;
+;          |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |cpu|memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;             |altsyncram_m8n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |cpu|memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0|altsyncram_m8n1:auto_generated ; altsyncram_m8n1 ; work         ;
+;       |ps2FlipFlop:ps2FlipFlop|              ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu|memory:memIO|ps2FlipFlop:ps2FlipFlop                                          ; ps2FlipFlop     ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                             ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                     ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0|altsyncram_m8n1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 1024         ; 3            ; 1024         ; 3            ; 3072 ; None ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |cpu|FSM:FSM|current_state                                                                                                                                                                                                                                                                                                                                                                                                          ;
++------------------------+---------------------+---------------------+-------------------+------------------+------------------+------------------+------------------+-----------------------+------------------------+---------------------+--------------------+---------------------+---------------------+---------------------+-----------------+-----------------+-----------------+-------------------+------------------+---------------------+
+; Name                   ; current_state.ILoad ; current_state.RLoad ; current_state.Ram ; current_state.PC ; current_state.Iw ; current_state.Rw ; current_state.Jw ; current_state.JalLoad ; current_state.JalStore ; current_state.Store ; current_state.Load ; current_state.Icomp ; current_state.Rcomp ; current_state.Jcomp ; current_state.J ; current_state.I ; current_state.R ; current_state.Dec ; current_state.IF ; current_state.start ;
++------------------------+---------------------+---------------------+-------------------+------------------+------------------+------------------+------------------+-----------------------+------------------------+---------------------+--------------------+---------------------+---------------------+---------------------+-----------------+-----------------+-----------------+-------------------+------------------+---------------------+
+; current_state.start    ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0                   ;
+; current_state.IF       ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 1                ; 1                   ;
+; current_state.Dec      ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 1                 ; 0                ; 1                   ;
+; current_state.R        ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 1               ; 0                 ; 0                ; 1                   ;
+; current_state.I        ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 1               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.J        ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 1               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Jcomp    ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 1                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Rcomp    ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 1                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Icomp    ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 1                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Load     ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 1                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Store    ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 1                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.JalStore ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 1                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.JalLoad  ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 1                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Jw       ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 1                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Rw       ; 0                   ; 0                   ; 0                 ; 0                ; 0                ; 1                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Iw       ; 0                   ; 0                   ; 0                 ; 0                ; 1                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.PC       ; 0                   ; 0                   ; 0                 ; 1                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.Ram      ; 0                   ; 0                   ; 1                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.RLoad    ; 0                   ; 1                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
+; current_state.ILoad    ; 1                   ; 0                   ; 0                 ; 0                ; 0                ; 0                ; 0                ; 0                     ; 0                      ; 0                   ; 0                  ; 0                   ; 0                   ; 0                   ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1                   ;
++------------------------+---------------------+---------------------+-------------------+------------------+------------------+------------------+------------------+-----------------------+------------------------+---------------------+--------------------+---------------------+---------------------+---------------------+-----------------+-----------------+-----------------+-------------------+------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++-----------------------------------------------------+------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal          ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------+------------------------+
+; PS2Handler:PS2Handler|data[0]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[1]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[2]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[3]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[4]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[5]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[6]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|data[7]                       ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[0]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[1]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[2]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[3]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[4]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[5]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[6]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; PS2Handler:PS2Handler|previousData[7]               ; PS2Handler:PS2Handler|Equal0 ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                              ;                        ;
++-----------------------------------------------------+------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++-----------------------------------------------+-------------------------------------------+
+; Register name                                 ; Reason for Removal                        ;
++-----------------------------------------------+-------------------------------------------+
+; memory:memIO|intAddr2[5..9]                   ; Stuck at VCC due to stuck port data_in    ;
+; memory:memIO|intData2[0..15]                  ; Stuck at GND due to stuck port data_in    ;
+; memory:memIO|exmem2:exmem|addr_reg2[5..9]     ; Stuck at VCC due to stuck port data_in    ;
+; memory:memIO|ps2FlipFlop:ps2FlipFlop|q[8..15] ; Stuck at GND due to stuck port data_in    ;
+; flipflop2:statusRegister|q[4]                 ; Merged with flipflop2:statusRegister|q[3] ;
+; FSM:FSM|current_state~4                       ; Lost fanout                               ;
+; FSM:FSM|current_state~5                       ; Lost fanout                               ;
+; FSM:FSM|current_state~6                       ; Lost fanout                               ;
+; FSM:FSM|current_state~7                       ; Lost fanout                               ;
+; FSM:FSM|current_state~8                       ; Lost fanout                               ;
+; Total Number of Removed Registers = 40        ;                                           ;
++-----------------------------------------------+-------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                   ;
++--------------------------+---------------------------+----------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register ;
++--------------------------+---------------------------+----------------------------------------+
+; memory:memIO|intAddr2[9] ; Stuck at VCC              ; memory:memIO|exmem2:exmem|addr_reg2[9] ;
+;                          ; due to stuck port data_in ;                                        ;
+; memory:memIO|intAddr2[8] ; Stuck at VCC              ; memory:memIO|exmem2:exmem|addr_reg2[8] ;
+;                          ; due to stuck port data_in ;                                        ;
+; memory:memIO|intAddr2[7] ; Stuck at VCC              ; memory:memIO|exmem2:exmem|addr_reg2[7] ;
+;                          ; due to stuck port data_in ;                                        ;
+; memory:memIO|intAddr2[6] ; Stuck at VCC              ; memory:memIO|exmem2:exmem|addr_reg2[6] ;
+;                          ; due to stuck port data_in ;                                        ;
+; memory:memIO|intAddr2[5] ; Stuck at VCC              ; memory:memIO|exmem2:exmem|addr_reg2[5] ;
+;                          ; due to stuck port data_in ;                                        ;
++--------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 13752 ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 48    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 13620 ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; memory:memIO|exmem2:exmem|ram[4][8]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][8]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][8]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[0][9]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][9]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][9]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[3][9]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][7]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][6]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[3][6]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][5]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[4][0]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][0]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][0]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[3][0]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[0][15]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][15]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][15]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[0][14]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[4][14]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][14]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][14]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[3][14]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][13]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[0][12]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][12]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][12]    ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][2]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[0][1]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[4][1]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[2][1]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[3][1]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[0][3]     ; 1       ;
+; memory:memIO|exmem2:exmem|ram[1][3]     ; 1       ;
+; Total number of inverted registers = 34 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                          ;
++-----------------------------------------------+-------------------------------------+
+; Register Name                                 ; RAM Name                            ;
++-----------------------------------------------+-------------------------------------+
+; memory:memIO|exmem2:exmem|ram_rtl_0_bypass[0] ; memory:memIO|exmem2:exmem|ram_rtl_0 ;
+; memory:memIO|exmem2:exmem|ram_rtl_0_bypass[1] ; memory:memIO|exmem2:exmem|ram_rtl_0 ;
+; memory:memIO|exmem2:exmem|ram_rtl_0_bypass[2] ; memory:memIO|exmem2:exmem|ram_rtl_0 ;
+; memory:memIO|exmem2:exmem|ram_rtl_0_bypass[3] ; memory:memIO|exmem2:exmem|ram_rtl_0 ;
++-----------------------------------------------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                 ;
++-------------------------------------------------+-------------------------------------+------+
+; Register Name                                   ; Megafunction                        ; Type ;
++-------------------------------------------------+-------------------------------------+------+
+; memory:memIO|exmem2:exmem|ram[0..991][4,10,11]  ; memory:memIO|exmem2:exmem|ram_rtl_0 ; RAM  ;
+; memory:memIO|exmem2:exmem|ram[992..1023][10,11] ; memory:memIO|exmem2:exmem|ram_rtl_0 ; RAM  ;
++-------------------------------------------------+-------------------------------------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |cpu|memory:memIO|intAddr1[5]                           ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |cpu|VGATopLevel:VGATopLevel|VGAtimer:control|vcount[2] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |cpu|VGATopLevel:VGATopLevel|VGAtimer:control|hcount[2] ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |cpu|datapath:datapath|regfile:regfile|rsrc[13]         ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; Yes        ; |cpu|datapath:datapath|regfile:regfile|rtgt[2]          ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |cpu|memory:memIO|intAddr2[2]                           ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |cpu|datapath:datapath|Alu:alu|ShiftLeft0               ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |cpu|datapath:datapath|Alu:alu|ShiftRight0              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cpu|memory:memIO|dout1[11]                             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|datapath:datapath|regMux:aluInput1|out[5]          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |cpu|FSM:FSM|Selector7                                  ;
+; 1025:1             ; 7 bits    ; 4781 LEs      ; 4781 LEs             ; 0 LEs                  ; No         ; |cpu|memory:memIO|dout1[3]                              ;
+; 1025:1             ; 6 bits    ; 4098 LEs      ; 4098 LEs             ; 0 LEs                  ; No         ; |cpu|memory:memIO|dout1[15]                             ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |cpu|datapath:datapath|Alu:alu|Mux8                     ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |cpu|datapath:datapath|Alu:alu|Mux7                     ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |cpu|datapath:datapath|regMux:reginput|out[10]          ;
+; 25:1               ; 3 bits    ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; No         ; |cpu|datapath:datapath|Alu:alu|Mux12                    ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 56 LEs               ; 12 LEs                 ; No         ; |cpu|datapath:datapath|regMux:reginput|out[12]          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |cpu|PS2Handler:PS2Handler|count[0]                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0|altsyncram_m8n1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                        ;
+; REGBITS        ; 4     ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath|regfile:regfile ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                        ;
+; REGBITS        ; 4     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath|Alu:alu ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath|regMux:aluInput1 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                         ;
+; REGBITS        ; 4     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath|regMux:middleMux ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                         ;
+; REGBITS        ; 4     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath|regMux:aluInput2 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                         ;
+; REGBITS        ; 4     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:datapath|regMux:reginput ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                        ;
+; REGBITS        ; 4     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FSM:FSM ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; start          ; 00000 ; Unsigned Binary             ;
+; IF             ; 00001 ; Unsigned Binary             ;
+; Dec            ; 00010 ; Unsigned Binary             ;
+; R              ; 00011 ; Unsigned Binary             ;
+; I              ; 00100 ; Unsigned Binary             ;
+; J              ; 00101 ; Unsigned Binary             ;
+; Jcomp          ; 00110 ; Unsigned Binary             ;
+; Rcomp          ; 00111 ; Unsigned Binary             ;
+; Icomp          ; 01000 ; Unsigned Binary             ;
+; Load           ; 01001 ; Unsigned Binary             ;
+; Store          ; 01010 ; Unsigned Binary             ;
+; JalStore       ; 01011 ; Unsigned Binary             ;
+; JalLoad        ; 01100 ; Unsigned Binary             ;
+; Jw             ; 01101 ; Unsigned Binary             ;
+; Rw             ; 01110 ; Unsigned Binary             ;
+; Iw             ; 01111 ; Unsigned Binary             ;
+; PC             ; 10000 ; Unsigned Binary             ;
+; Ram            ; 10001 ; Unsigned Binary             ;
+; RLoad          ; 10010 ; Unsigned Binary             ;
+; ILoad          ; 10011 ; Unsigned Binary             ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memory:memIO|exmem2:exmem ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; DATA_WIDTH     ; 16    ; Signed Integer                                ;
+; ADDR_WIDTH     ; 10    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0 ;
++------------------------------------+----------------------+-------------------------------------+
+; Parameter Name                     ; Value                ; Type                                ;
++------------------------------------+----------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                             ;
+; WIDTH_A                            ; 3                    ; Untyped                             ;
+; WIDTHAD_A                          ; 10                   ; Untyped                             ;
+; NUMWORDS_A                         ; 1024                 ; Untyped                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WIDTH_B                            ; 3                    ; Untyped                             ;
+; WIDTHAD_B                          ; 10                   ; Untyped                             ;
+; NUMWORDS_B                         ; 1024                 ; Untyped                             ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
+; BYTE_SIZE                          ; 8                    ; Untyped                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; INIT_FILE                          ; UNUSED               ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                             ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_m8n1      ; Untyped                             ;
++------------------------------------+----------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                           ;
++-------------------------------------------+------------------------------------------------+
+; Name                                      ; Value                                          ;
++-------------------------------------------+------------------------------------------------+
+; Number of entity instances                ; 1                                              ;
+; Entity Instance                           ; memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
+;     -- WIDTH_A                            ; 3                                              ;
+;     -- NUMWORDS_A                         ; 1024                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
+;     -- WIDTH_B                            ; 3                                              ;
+;     -- NUMWORDS_B                         ; 1024                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ;
++-------------------------------------------+------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "VGATopLevel:VGATopLevel|VGAtimer:control" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; clear ; Input ; Info     ; Stuck at VCC                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PS2Handler:PS2Handler"                                                                              ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; previousCompleteData ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "memory:memIO|ps2FlipFlop:ps2FlipFlop" ;
++----------+-------+----------+------------------------------------+
+; Port     ; Type  ; Severity ; Details                            ;
++----------+-------+----------+------------------------------------+
+; d[15..8] ; Input ; Info     ; Stuck at GND                       ;
++----------+-------+----------+------------------------------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "memory:memIO" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; wen2 ; Input ; Info     ; Stuck at GND   ;
++------+-------+----------+----------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:datapath|regMux:aluInput1" ;
++------------+-------+----------+--------------------------------+
+; Port       ; Type  ; Severity ; Details                        ;
++------------+-------+----------+--------------------------------+
+; in2[15..1] ; Input ; Info     ; Stuck at GND                   ;
+; in2[0]     ; Input ; Info     ; Stuck at VCC                   ;
++------------+-------+----------+--------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:datapath"                                                                                  ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; output_alu_b[15..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pc_out[15..10]       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 13752                       ;
+;     CLR               ; 48                          ;
+;     ENA               ; 13600                       ;
+;     ENA SCLR          ; 20                          ;
+;     SCLR SLD          ; 10                          ;
+;     plain             ; 74                          ;
+; arriav_lcell_comb     ; 6489                        ;
+;     arith             ; 100                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 36                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 14                          ;
+;         5 data inputs ; 33                          ;
+;     extend            ; 87                          ;
+;         7 data inputs ; 87                          ;
+;     normal            ; 6302                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 36                          ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 1077                        ;
+;         4 data inputs ; 84                          ;
+;         5 data inputs ; 119                         ;
+;         6 data inputs ; 4950                        ;
+; boundary_port         ; 41                          ;
+; stratixv_ram_block    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 13.30                       ;
+; Average LUT depth     ; 6.26                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:18     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon Dec 11 14:17:11 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 2 entities, in source file memory.v
+    Info (12023): Found entity 1: memory File: C:/Users/samwi/Desktop/ECE3710/CPU/memory.v Line: 1
+    Info (12023): Found entity 2: ps2FlipFlop File: C:/Users/samwi/Desktop/ECE3710/CPU/memory.v Line: 106
+Info (12021): Found 1 design units, including 1 entities, in source file exmem2.v
+    Info (12023): Found entity 1: exmem2 File: C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bitgen.v
+    Info (12023): Found entity 1: bitgen File: C:/Users/samwi/Desktop/ECE3710/CPU/bitgen.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file vgatoplevel.v
+    Info (12023): Found entity 1: VGATopLevel File: C:/Users/samwi/Desktop/ECE3710/CPU/VGATopLevel.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
+    Info (12023): Found entity 1: FSM File: C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.v
+    Info (12023): Found entity 1: Decoder File: C:/Users/samwi/Desktop/ECE3710/CPU/Decoder.v Line: 2
+Info (12021): Found 3 design units, including 3 entities, in source file cpu.v
+    Info (12023): Found entity 1: cpu File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 2
+    Info (12023): Found entity 2: bigflipflop File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 102
+    Info (12023): Found entity 3: flipflop2 File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 117
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: datapath File: C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: Alu File: C:/Users/samwi/Desktop/ECE3710/CPU/Alu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.v
+    Info (12023): Found entity 1: regfile File: C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file regmux.v
+    Info (12023): Found entity 1: regMux File: C:/Users/samwi/Desktop/ECE3710/CPU/regMux.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file exmem.v
+    Info (12023): Found entity 1: exmem File: C:/Users/samwi/Desktop/ECE3710/CPU/exmem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tb_alu.v
+    Info (12023): Found entity 1: tb_alu File: C:/Users/samwi/Desktop/ECE3710/CPU/tb_alu.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file tb_datapath.v
+    Info (12023): Found entity 1: tb_datapath File: C:/Users/samwi/Desktop/ECE3710/CPU/tb_datapath.v Line: 2
+Info (12021): Found 2 design units, including 2 entities, in source file memoryfsm.v
+    Info (12023): Found entity 1: memoryFSM File: C:/Users/samwi/Desktop/ECE3710/CPU/memoryFSM.v Line: 1
+    Info (12023): Found entity 2: Clock_divider File: C:/Users/samwi/Desktop/ECE3710/CPU/memoryFSM.v Line: 67
+Info (12021): Found 1 design units, including 1 entities, in source file threemux.v
+    Info (12023): Found entity 1: threeMux File: C:/Users/samwi/Desktop/ECE3710/CPU/threeMux.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file ps2handler.v
+    Info (12023): Found entity 1: PS2Handler File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vgatimer.v
+    Info (12023): Found entity 1: VGAtimer File: C:/Users/samwi/Desktop/ECE3710/CPU/VGAtimer.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file cmpdecoder.v
+    Info (12023): Found entity 1: cmpDecoder File: C:/Users/samwi/Desktop/ECE3710/CPU/cmpDecoder.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file tb_cpu.v
+    Info (12023): Found entity 1: tb_cpu File: C:/Users/samwi/Desktop/ECE3710/CPU/tb_cpu.v Line: 2
+Info (12127): Elaborating entity "cpu" for the top level hierarchy
+Info (12128): Elaborating entity "cmpDecoder" for hierarchy "cmpDecoder:codes" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 38
+Info (12128): Elaborating entity "bigflipflop" for hierarchy "bigflipflop:flip" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 40
+Info (12128): Elaborating entity "flipflop2" for hierarchy "flipflop2:statusRegister" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 42
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:datapath" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 52
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:datapath|regfile:regfile" File: C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v Line: 39
+Info (10648): Verilog HDL Display System Task info at regfile.v(23): Loading register file File: C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v Line: 23
+Info (10648): Verilog HDL Display System Task info at regfile.v(25): done with RF load File: C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v Line: 25
+Info (12128): Elaborating entity "Alu" for hierarchy "datapath:datapath|Alu:alu" File: C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v Line: 42
+Info (12128): Elaborating entity "regMux" for hierarchy "datapath:datapath|regMux:aluInput1" File: C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v Line: 49
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:FSM" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 62
+Info (12128): Elaborating entity "Decoder" for hierarchy "FSM:FSM|Decoder:dec" File: C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v Line: 37
+Info (12128): Elaborating entity "memory" for hierarchy "memory:memIO" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 77
+Info (12128): Elaborating entity "ps2FlipFlop" for hierarchy "memory:memIO|ps2FlipFlop:ps2FlipFlop" File: C:/Users/samwi/Desktop/ECE3710/CPU/memory.v Line: 23
+Info (12128): Elaborating entity "exmem2" for hierarchy "memory:memIO|exmem2:exmem" File: C:/Users/samwi/Desktop/ECE3710/CPU/memory.v Line: 33
+Info (10648): Verilog HDL Display System Task info at exmem2.v(23): Loading program file File: C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v Line: 23
+Info (10648): Verilog HDL Display System Task info at exmem2.v(25): done with program load File: C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v Line: 25
+Info (12128): Elaborating entity "PS2Handler" for hierarchy "PS2Handler:PS2Handler" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at PS2Handler.v(45): inferring latch(es) for variable "previousCompleteData", which holds its previous value in one or more paths through the always construct File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 45
+Warning (10240): Verilog HDL Always Construct warning at PS2Handler.v(45): inferring latch(es) for variable "data", which holds its previous value in one or more paths through the always construct File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 45
+Warning (10240): Verilog HDL Always Construct warning at PS2Handler.v(45): inferring latch(es) for variable "previousData", which holds its previous value in one or more paths through the always construct File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 45
+Info (10041): Inferred latch for "previousData[0]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[1]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[2]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[3]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[4]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[5]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[6]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousData[7]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[0]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[1]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[2]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[3]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[4]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[5]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[6]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "data[7]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[0]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[1]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[2]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[3]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[4]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[5]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[6]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (10041): Inferred latch for "previousCompleteData[7]" at PS2Handler.v(52) File: C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v Line: 52
+Info (12128): Elaborating entity "VGATopLevel" for hierarchy "VGATopLevel:VGATopLevel" File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 95
+Info (12128): Elaborating entity "VGAtimer" for hierarchy "VGATopLevel:VGATopLevel|VGAtimer:control" File: C:/Users/samwi/Desktop/ECE3710/CPU/VGATopLevel.v Line: 87
+Info (12128): Elaborating entity "bitgen" for hierarchy "VGATopLevel:VGATopLevel|bitgen:bg1" File: C:/Users/samwi/Desktop/ECE3710/CPU/VGATopLevel.v Line: 97
+Warning (276020): Inferred RAM node "memory:memIO|exmem2:exmem|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "memory:memIO|exmem2:exmem|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 3
+        Info (286033): Parameter WIDTHAD_A set to 10
+        Info (286033): Parameter NUMWORDS_A set to 1024
+        Info (286033): Parameter WIDTH_B set to 3
+        Info (286033): Parameter WIDTHAD_B set to 10
+        Info (286033): Parameter NUMWORDS_B set to 1024
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "memory:memIO|exmem2:exmem|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "3"
+    Info (12134): Parameter "WIDTHAD_A" = "10"
+    Info (12134): Parameter "NUMWORDS_A" = "1024"
+    Info (12134): Parameter "WIDTH_B" = "3"
+    Info (12134): Parameter "WIDTHAD_B" = "10"
+    Info (12134): Parameter "NUMWORDS_B" = "1024"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m8n1.tdf
+    Info (12023): Found entity 1: altsyncram_m8n1 File: C:/Users/samwi/Desktop/ECE3710/CPU/db/altsyncram_m8n1.tdf Line: 27
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/samwi/Desktop/ECE3710/CPU/output_files/CPU.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 20145 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 37 output pins
+    Info (21061): Implemented 20101 logic cells
+    Info (21064): Implemented 3 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 5015 megabytes
+    Info: Processing ended: Mon Dec 11 14:17:44 2023
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:35
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/samwi/Desktop/ECE3710/CPU/output_files/CPU.map.smsg.
+
+

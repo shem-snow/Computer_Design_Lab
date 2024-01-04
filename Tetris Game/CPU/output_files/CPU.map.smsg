@@ -1,0 +1,3 @@
+Warning (10268): Verilog HDL information at memory.v(35): always construct contains both blocking and non-blocking assignments File: C:/Users/samwi/Desktop/ECE3710/CPU/memory.v Line: 35
+Info (10281): Verilog HDL Declaration information at VGATopLevel.v(32): object "Vcount" differs only in case from object "vcount" in the same scope File: C:/Users/samwi/Desktop/ECE3710/CPU/VGATopLevel.v Line: 32
+Info (10281): Verilog HDL Declaration information at FSM.v(15): object "Dec" differs only in case from object "dec" in the same scope File: C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v Line: 15
