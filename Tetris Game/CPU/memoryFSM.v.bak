@@ -1,0 +1,30 @@
+module memoryFSM();
+
+ reg [3:0] state, nextstate;       // state register and nextstate value
+ 
+ always @(posedge clk)
+      if(~reset) state <= start;
+      else state <= nextstate;
+		
+	parameter   start  =  4'b0001;
+	parameter   start2  =  4'b1001;
+	parameter   start3  =  4'b1010;
+	parameter   write1  =  4'b0000;
+   parameter   write2  =  4'b0010;
+   parameter   read1  =   4'b0011;
+   parameter   read2  =   4'b0100;
+   parameter   last  =    4'b0101;
+always @(*)
+      begin
+         case(state)
+				start: nextstate <=start2;
+				start2: nextstate <= start3;
+				start3: nextState <= write1; 
+				write1: nextstate <= read1;
+				read1: nextstate <= write2;
+				write2: nextstate <= read2;
+				read2: nextstate <=last;
+				last: nextstate <= last;
+         endcase
+      end		
+endmodule

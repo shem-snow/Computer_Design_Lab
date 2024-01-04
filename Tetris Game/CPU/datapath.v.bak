@@ -1,0 +1,21 @@
+
+module datapath #(parameter WIDTH = 16, REGBITS = 4)
+					(input [3:0] opcode,
+					 input [15:0] addr1, addr2,
+					 input wr, // write register
+					 output [4:0] psr, // processor status register (this just contains flags)
+					 output [15:0] alu_result
+);
+// Define the wires in between submodules.
+wire [15:0] alu_a;
+wire [15:0] alu_b;
+wire [15:0] result; 
+
+// Instantiate the submodules.
+Alu alu( .a(addr1), .b(addr2), .alucode(opcode), .flags(psr), .result(result));
+regfile regfile(.regwrite(wr), .ra1(addr1), .ra2(addr2), .wd(result), .rsrc(alu_a), .rtgt(alu_b));
+
+// Drive the outputs.
+assign alu_result = result;
+
+endmodule

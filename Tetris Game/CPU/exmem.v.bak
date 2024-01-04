@@ -1,0 +1,41 @@
+module exmem #(parameter DATA_WIDTH=8, parameter ADDR_WIDTH=8)
+        (
+	input [(DATA_WIDTH-1):0] switches,
+	input [(DATA_WIDTH-1):0] data,
+	input [(ADDR_WIDTH-1):0] addr,
+	input wen, clk,
+	output [(DATA_WIDTH-1):0] q,
+	output reg [(DATA_WIDTH-1):0] LEDs
+        );
+
+	// Declare Wire IO
+	wire IO;
+	
+	assign IO = (addr[7:6] == 2'b11);
+	// Declare the RAM variable
+	reg [DATA_WIDTH-1:0] ram[2**ADDR_WIDTH-1:0];
+
+	// Variable to hold the read address
+	reg [ADDR_WIDTH-1:0] addr_reg;
+
+	// Load RAM data from an external file
+	initial begin
+		$display("Loading memory");
+		$readmemh("C:/Users/irbk1/Desktop/ECE3710/MipsLab/fib-h.dat", ram);
+		$display("done loading");
+	end
+
+	always @ (negedge clk) begin
+		  if (wen) begin
+				if (IO) 
+					LEDs <= data;
+				else
+				 ram[addr] <= data;
+				 end
+		addr_reg <= addr;
+	end
+
+	// Continuous assignment implies read returns NEW data
+	assign q = IO ? switches : ram[addr_reg];
+
+endmodule // exmem

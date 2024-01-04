@@ -1,0 +1,39 @@
+module memory(
+	input [15:0] din1,
+	input [15:0] din2,
+	input [15:0] io_in,
+	input [9:0] addr1,
+	input [9:0] addr2,
+	input wen1,wen2, clk, ps2data_clock,
+
+	output [15:0] dout1,
+	output [15:0] dout2,
+	output [15:0] io_out
+	
+	)
+	
+	reg [15:0] data;
+	reg [10:0] addr;
+	
+	exmem2 exmem (
+	.din1(instruction_memory),
+	.din2(data),
+   .addr1(pc[9:0]),
+	.addr2(addr),
+	.wen1(wen1), .wen2(enable_signals[10]), .clk(clk),
+	.dout1(instruction_memory),
+	.dout2(data_memory)
+        );
+		  
+	always @(*) begin
+	  if(ps2data_clock) begin
+	    data = io_in;
+		 addr = 10'd1023;
+	  end
+	  else begin
+	    data = din2;
+		 addr = addr2;
+	end
+		  
+
+endmodule

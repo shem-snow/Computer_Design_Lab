@@ -1,0 +1,205 @@
+module FSM(
+	input clock,
+	input reset,
+	input [3:0] opcode,
+	input [3:0] imm_funct,
+	input [4:0] conditional, // From process state register 
+	
+	output reg [10:0] enable_signals
+);
+
+// State encodings
+parameter s0 = 4'b0000; // Initial state that doesn't do anything.
+parameter s1 = 4'b0001; // Instruction Fetch
+parameter s2 = 4'b0010; // Decode
+parameter s3 = 4'b0011; // J-type
+parameter s4 = 4'b0100; // jal: store link address
+parameter s5 = 4'b0101; // jal: load new $ra
+parameter s6 = 4'b0110; // Access a Memory location (Feed an address from the regfile to RAM)
+parameter s7 = 4'b0111; // Load data from memory to the regfile
+parameter s8 = 4'b1000; // Store/write from the regfile to memory
+parameter s9 = 4'b1001; // R-type
+parameter s10 = 4'b1010; // Register load (R-type)
+parameter s11 = 4'b1011; // I-type
+parameter s12 = 4'b1100; // Register load (i-type)
+parameter s13 = 4'b1101; // ALU computation
+parameter s14 = 4'b1110; // Writeback of the ALU_result
+parameter s15 = 4'b1111; // Increment the PC by one word
+
+
+
+// Decoder and wire for driving the decoded alu opcode.
+wire [3:0] ALU_decoded;
+Decoder dec(.opcode({opcode, imm_funct}), .alucode(ALU_decoded));
+
+// State registers
+reg current_state;
+reg next_state;
+reg unclocked_next_state;
+
+
+// State progression
+always@(posedge clock) begin
+	next_state <= unclocked_next_state;
+end
+always@(negedge clock) begin
+	if(~reset) // active low
+		current_state <= s0;
+	else
+		current_state <= next_state;
+end
+
+
+// Next state prediction
+always@(*) begin
+	
+	case(current_state)
+	
+		s0: unclocked_next_state <= s1;
+		s1: unclocked_next_state <= s2;
+		
+		// Decode
+		s2: begin
+			case(opcode)
+				
+				// Multiple-typed opcodes
+				4'b1000:
+					case(imm_funct)
+						4'b0100:
+							unclocked_next_state <= s9; // R-type
+						default
+							unclocked_next_state <= s11; // I-type
+					endcase
+				
+				4'b0100:
+					case(imm_funct)
+						4'b0000, 4'b0100:
+							unclocked_next_state <= s9; // R-type
+						4'b1100, 4'b100:
+							unclocked_next_state <= s3; // J-type
+					endcase
+				
+				// Same-type shared opcodes
+				4'b0000: unclocked_next_state <= s9; // R-type
+				
+				// Unshared/unique opcodes
+				4'b1100: unclocked_next_state <= s11; // BCOND.
+				
+				4'b0101, 4'b1001, 4'b0001, 4'b0010, 4'b0011, 4'b1101, 4'b1111: unclocked_next_state <= s11; // I-type
+				
+				default: unclocked_next_state <= s15; // This should never be reached.
+				
+			endcase
+		end
+		
+		s3:
+			case(imm_funct)
+				
+				// jal
+				4'b1000: unclocked_next_state <= s4; // Store link address in EXMEM
+				
+				// JCOND
+				4'b1100: unclocked_next_state <= s13; // ALU_compute
+				
+				// Should be unreachable
+				default: unclocked_next_state <= s15;
+				
+			endcase
+		s4: unclocked_next_state <= s5; // Load target address into $ra
+
+		s6:
+			case(imm_funct)
+			
+				// load
+				4'b0000: unclocked_next_state <= s7;
+				
+				// store
+				4'b0100: unclocked_next_state <= s8;
+				
+				// Should be unreachable
+				default: unclocked_next_state <= s15;
+				
+			endcase
+		
+		s9: 
+			case(opcode)
+			
+				// Memory access (load and store)
+				4'b0100: unclocked_next_state <= s6;
+				
+				// Register load
+				default: unclocked_next_state <= s15;
+			endcase
+			
+		s10: unclocked_next_state <= s13;
+		
+		s11: unclocked_next_state <= s12;
+		
+		s12: unclocked_next_state <= s13;
+		
+		s13: unclocked_next_state <= s14;
+		
+		s5, s7, s8, s14: unclocked_next_state <= s15; // $pc++
+		
+		s15: unclocked_next_state <= s0;
+		
+		default: unclocked_next_state <= s15; // This case should be unreachable
+	endcase
+	
+end
+
+
+
+
+// Output driving (enable signals for the datapath)
+always@(current_state) 
+begin
+	
+	case(current_state)
+			
+			// No work to be done because these states are part of instruction decoding.
+			s0, s1, s2, s9, s10: enable_signals = 11'b000_0000_0000;
+			
+			// Check for a successful JCOND
+			s3: begin
+				if(opcode == 4'b0100 && imm_funct == 4'b1100 && conditional == 5'b00011)
+					enable_signals = 11'b001_1000_1111;
+			end
+			
+			// JAL sends the program through s4 & s5
+			s4: enable_signals = 11'b010_1101_0000; // Rdst = PC + 1
+			s5: enable_signals = 11'b001_1000_1111; // PC = Rtgt
+			
+			// s6 determines if load or store happens next
+			s6: enable_signals = (imm_funct == 4'b0000)? 11'b010_0000_0000 : 11'b100_0000_0000; // load : store
+			s7, s8: ; // s7 is load. s8 is store. The work was already done in s6. Just remember the current signals.
+			
+			// I-type instructions may branch
+			s11, s12:
+				if(opcode == 4'b1100) // BCOND
+					enable_signals = 11'b000_1110_0000; // cannot write to pc unless condition passes
+				else // Not BCOND
+					enable_signals = 11'b000_0010_0000;
+			
+			// ALU computation
+			s13, s14: begin
+			
+				if(opcode == 4'b1100 && conditional == 5'b00011) // BCOND passes
+					enable_signals = 11'b001_1110_0000;
+				else if(imm_funct == 4'b1100 && conditional == 5'b00011) // JCOND passes
+					enable_signals = 11'b001_1000_1111;
+				else
+					enable_signals[3:0] = ALU_decoded; // All bits except the last 4 were already set in previous states.
+			end 
+			
+			// Increment the PC by one word
+			s15: enable_signals = 11'b001_1101_0000;
+			
+			// Should never be reached
+			default: enable_signals = 11'b000_0000_0000; 
+	endcase
+
+end
+
+
+endmodule
