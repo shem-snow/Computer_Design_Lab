@@ -1,0 +1,169 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/simulation/modelsim
+vbitGen1
+Z1 !s110 1698188389
+!i10b 1
+!s100 ]dmADQoJlR1HSg2HCQLIe3
+ICW:0DnO1en66L1J`laSYH0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1698179690
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen1.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen1.v
+L0 5
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1698188389.000000
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen1.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA
+Z7 tCvgOpt 0
+nbit@gen1
+vbitGen2
+R1
+!i10b 1
+!s100 ][DWca8I3dCO>@2mHjKUP2
+IL?_2MI04Fh9dC_g1?5i8;0
+R2
+R0
+w1697921173
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen2.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen2.v
+L0 15
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen2.v|
+!i113 1
+R5
+R6
+R7
+nbit@gen2
+vClockDivider
+Z8 !s110 1698188390
+!i10b 1
+!s100 2i>IDFIn9JA__KnGRo7KT2
+Il1iZzLKFnU7mJ6KjiQoFe1
+R2
+R0
+w1697917418
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/ClockDivider.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/ClockDivider.v
+L0 5
+R3
+r1
+!s85 0
+31
+Z9 !s108 1698188390.000000
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/ClockDivider.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/ClockDivider.v|
+!i113 1
+R5
+R6
+R7
+n@clock@divider
+vtb_VGAtimer
+!s110 1698188404
+!i10b 1
+!s100 0GieUToaFh`KI>]L_[I;22
+Inz:DQR<I`MJ1S>oKho1g20
+R2
+R0
+w1698188130
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1698188404.000000
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v|
+!s90 -reportprogress|300|-work|work|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v|
+!i113 1
+Z10 o-work work
+R7
+ntb_@v@g@atimer
+vTbirdFSM
+R8
+!i10b 1
+!s100 `aJHWEfh4LGQMLWR]Rn5C1
+I^3ZDHdEf7e4FU?1CJ_gY83
+R2
+R0
+w1697772397
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/TbirdFSM.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/TbirdFSM.v
+L0 9
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/TbirdFSM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/TbirdFSM.v|
+!i113 1
+R5
+R6
+R7
+n@tbird@f@s@m
+vtopLevel
+R8
+!i10b 1
+!s100 HHQ7kQZ:<iM[L6CJOnSgQ1
+I=`z`FZ?^YTzVNDGQOeBcH0
+R2
+R0
+w1698181167
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/topLevel.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/topLevel.v
+L0 23
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/topLevel.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/topLevel.v|
+!i113 1
+R5
+R6
+R7
+ntop@level
+vVGAtimer
+!s110 1698188400
+!i10b 1
+!s100 cZON84:R`R0[[i3cP2KJN0
+I_kj_5WQ]KfZjHazWAEgE92
+R2
+R0
+w1697925104
+8C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v
+FC:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v
+L0 14
+R3
+r1
+!s85 0
+31
+!s108 1698188400.000000
+!s107 C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v|
+!s90 -reportprogress|300|-work|work|C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v|
+!i113 1
+R10
+R7
+n@v@g@atimer

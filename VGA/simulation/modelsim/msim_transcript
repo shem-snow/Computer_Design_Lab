@@ -1,0 +1,265 @@
+# Reading C:/Users/shem-/OneDrive/Documents/Quartus/modelsim_ase/tcl/vsim/pref.tcl
+# do VGA_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/Users/shem-/OneDrive/Documents/Quartus/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:49 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v 
+# -- Compiling module VGAtimer
+# 
+# Top level modules:
+# 	VGAtimer
+# End time: 15:59:49 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:49 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen1.v 
+# -- Compiling module bitGen1
+# 
+# Top level modules:
+# 	bitGen1
+# End time: 15:59:49 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:49 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/bitGen2.v 
+# -- Compiling module bitGen2
+# 
+# Top level modules:
+# 	bitGen2
+# End time: 15:59:49 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/topLevel.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:49 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/topLevel.v 
+# -- Compiling module topLevel
+# 
+# Top level modules:
+# 	topLevel
+# End time: 15:59:50 on Oct 24,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/TbirdFSM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:50 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/TbirdFSM.v 
+# -- Compiling module TbirdFSM
+# 
+# Top level modules:
+# 	TbirdFSM
+# End time: 15:59:50 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/ClockDivider.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:50 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/ClockDivider.v 
+# -- Compiling module ClockDivider
+# 
+# Top level modules:
+# 	ClockDivider
+# End time: 15:59:50 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_TOP.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:59:50 on Oct 24,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA" C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_TOP.v 
+# ** Error: (vlog-7) Failed to open design unit file "C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_TOP.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 15:59:50 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/Users/shem-/OneDrive/Documents/Quartus/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./VGA_run_msim_rtl_verilog.do line 15
+# C:/Users/shem-/OneDrive/Documents/Quartus/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+C:/Users/shem-/OneDrive/Documents/ECE3710/VGA {C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_TOP.v}"
+vlog -reportprogress 300 -work work C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:00:00 on Oct 24,2023
+# vlog -reportprogress 300 -work work C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/vgaTimer.v 
+# -- Compiling module VGAtimer
+# 
+# Top level modules:
+# 	VGAtimer
+# End time: 16:00:00 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:00:04 on Oct 24,2023
+# vlog -reportprogress 300 -work work C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v 
+# -- Compiling module tb_VGAtimer
+# 
+# Top level modules:
+# 	tb_VGAtimer
+# End time: 16:00:04 on Oct 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_VGAtimer
+# vsim work.tb_VGAtimer 
+# Start time: 16:00:29 on Oct 24,2023
+# Loading work.tb_VGAtimer
+# Loading work.VGAtimer
+add wave sim:/tb_VGAtimer/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: irbk1  Hostname: DESKTOP-2EII96A  ProcessID: 30396
+#           Attempting to use alternate WLF file "./wlfte4fc7y".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfte4fc7y
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -all
+# ** Note: $stop    : C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v(34)
+#    Time: 100020 ps  Iteration: 0  Instance: /tb_VGAtimer
+# Break in Module tb_VGAtimer at C:/Users/shem-/OneDrive/Documents/ECE3710/VGA/tb_VGAtimer.v line 34
+# End time: 16:19:50 on Oct 24,2023, Elapsed time: 0:19:21
+# Errors: 0, Warnings: 2

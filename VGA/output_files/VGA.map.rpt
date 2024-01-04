@@ -1,0 +1,471 @@
+Analysis & Synthesis report for VGA
+Tue Nov 28 18:43:49 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |topLevel|TbirdFSM:fsm|next_state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: bitGen1:bg1
+ 15. Parameter Settings for User Entity Instance: TbirdFSM:fsm
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Nov 28 18:43:49 2023       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; VGA                                         ;
+; Top-level Entity Name           ; topLevel                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 74                                          ;
+; Total pins                      ; 45                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; topLevel           ; VGA                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; vgaTimer.v                       ; yes             ; User Verilog HDL File  ; C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/vgaTimer.v     ;         ;
+; bitGen1.v                        ; yes             ; User Verilog HDL File  ; C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen1.v      ;         ;
+; bitGen2.v                        ; yes             ; User Verilog HDL File  ; C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen2.v      ;         ;
+; topLevel.v                       ; yes             ; User Verilog HDL File  ; C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v     ;         ;
+; TbirdFSM.v                       ; yes             ; User Verilog HDL File  ; C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v     ;         ;
+; ClockDivider.v                   ; yes             ; User Verilog HDL File  ; C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/ClockDivider.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 107       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 174       ;
+;     -- 7 input functions                    ; 3         ;
+;     -- 6 input functions                    ; 36        ;
+;     -- 5 input functions                    ; 22        ;
+;     -- 4 input functions                    ; 20        ;
+;     -- <=3 input functions                  ; 93        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 74        ;
+;                                             ;           ;
+; I/O pins                                    ; 45        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 35        ;
+; Total fan-out                               ; 973       ;
+; Average fan-out                             ; 2.88      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+--------------+--------------+
+; |topLevel                  ; 174 (36)            ; 74 (1)                    ; 0                 ; 0          ; 45   ; 0            ; |topLevel                       ; topLevel     ; work         ;
+;    |ClockDivider:clockDiv| ; 40 (40)             ; 34 (34)                   ; 0                 ; 0          ; 0    ; 0            ; |topLevel|ClockDivider:clockDiv ; ClockDivider ; work         ;
+;    |TbirdFSM:fsm|          ; 33 (33)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |topLevel|TbirdFSM:fsm          ; TbirdFSM     ; work         ;
+;    |VGAtimer:control|      ; 35 (35)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |topLevel|VGAtimer:control      ; VGAtimer     ; work         ;
+;    |bitGen1:bg1|           ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |topLevel|bitGen1:bg1           ; bitGen1      ; work         ;
+;    |bitGen2:bg2|           ; 26 (26)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |topLevel|bitGen2:bg2           ; bitGen2      ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |topLevel|TbirdFSM:fsm|next_state                                                                                             ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; Name          ; next_state.s7 ; next_state.s6 ; next_state.s5 ; next_state.s4 ; next_state.s3 ; next_state.s2 ; next_state.s1 ; next_state.s0 ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; next_state.s0 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ;
+; next_state.s1 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ;
+; next_state.s2 ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ;
+; next_state.s3 ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ;
+; next_state.s4 ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ;
+; next_state.s5 ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; next_state.s6 ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; next_state.s7 ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; TbirdFSM:fsm|unclocked_next_state.s6_227           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s0_353           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s1_332           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s2_311           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s3_290           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s4_269           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s5_248           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; TbirdFSM:fsm|unclocked_next_state.s7_206           ; TbirdFSM:fsm|Mux1   ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; TbirdFSM:fsm|next_state~2             ; Lost fanout        ;
+; TbirdFSM:fsm|next_state~3             ; Lost fanout        ;
+; TbirdFSM:fsm|next_state~4             ; Lost fanout        ;
+; Total Number of Removed Registers = 3 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 74    ;
+; Number of registers using Synchronous Clear  ; 52    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 8     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 52    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; TbirdFSM:fsm|current_state~7           ; 1       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |topLevel|VGAtimer:control|vcount[8] ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |topLevel|VGAtimer:control|hcount[9] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |topLevel|VGA_B                      ;
+; 12:1               ; 9 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |topLevel|VGA_G                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bitGen1:bg1 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; BLACK          ; 000   ; Unsigned Binary                 ;
+; BLUE           ; 001   ; Unsigned Binary                 ;
+; GREEN          ; 010   ; Unsigned Binary                 ;
+; LIGHTBLUE      ; 011   ; Unsigned Binary                 ;
+; RED            ; 100   ; Unsigned Binary                 ;
+; PINK           ; 101   ; Unsigned Binary                 ;
+; YELLOW         ; 110   ; Unsigned Binary                 ;
+; WHITE          ; 111   ; Unsigned Binary                 ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: TbirdFSM:fsm ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; HAZARD         ; 1011  ; Unsigned Binary                  ;
+; LEFT           ; 0111  ; Unsigned Binary                  ;
+; RIGHT          ; 1110  ; Unsigned Binary                  ;
+; RESET          ; 1101  ; Unsigned Binary                  ;
+; s0             ; 000   ; Unsigned Binary                  ;
+; s1             ; 001   ; Unsigned Binary                  ;
+; s2             ; 010   ; Unsigned Binary                  ;
+; s3             ; 011   ; Unsigned Binary                  ;
+; s4             ; 100   ; Unsigned Binary                  ;
+; s5             ; 101   ; Unsigned Binary                  ;
+; s6             ; 110   ; Unsigned Binary                  ;
+; s7             ; 111   ; Unsigned Binary                  ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 74                          ;
+;     CLR               ; 8                           ;
+;     ENA SCLR          ; 52                          ;
+;     plain             ; 14                          ;
+; arriav_lcell_comb     ; 175                         ;
+;     arith             ; 52                          ;
+;         1 data inputs ; 52                          ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 120                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 22                          ;
+;         6 data inputs ; 36                          ;
+; boundary_port         ; 45                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.10                        ;
+; Average LUT depth     ; 2.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Nov 28 18:43:37 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb_bitgen2.v
+    Info (12023): Found entity 1: tb_bitGen2 File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/tb_bitGen2.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file vgatimer.v
+    Info (12023): Found entity 1: VGAtimer File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/vgaTimer.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file bitgen1.v
+    Info (12023): Found entity 1: bitGen1 File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen1.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file bitgen2.v
+    Info (12023): Found entity 1: bitGen2 File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen2.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file toplevel.v
+    Info (12023): Found entity 1: topLevel File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file tb_vgatimer.v
+    Info (12023): Found entity 1: tb_VGAtimer File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/tb_VGAtimer.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file tbirdfsm.v
+    Info (12023): Found entity 1: TbirdFSM File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file clockdivider.v
+    Info (12023): Found entity 1: ClockDivider File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/ClockDivider.v Line: 5
+Warning (12019): Can't analyze file -- file output_files/tb_bitGen2.v is missing
+Info (12127): Elaborating entity "topLevel" for the top level hierarchy
+Info (12128): Elaborating entity "VGAtimer" for hierarchy "VGAtimer:control" File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 103
+Info (12128): Elaborating entity "bitGen1" for hierarchy "bitGen1:bg1" File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 105
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clockDiv" File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 107
+Info (12128): Elaborating entity "TbirdFSM" for hierarchy "TbirdFSM:fsm" File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 108
+Warning (10240): Verilog HDL Always Construct warning at TbirdFSM.v(44): inferring latch(es) for variable "unclocked_next_state", which holds its previous value in one or more paths through the always construct File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10264): Verilog HDL Case Statement information at TbirdFSM.v(109): all case item expressions in this case statement are onehot File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 109
+Info (10041): Inferred latch for "unclocked_next_state.s7" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s6" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s5" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s4" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s3" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s2" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s1" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (10041): Inferred latch for "unclocked_next_state.s0" at TbirdFSM.v(44) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+Info (12128): Elaborating entity "bitGen2" for hierarchy "bitGen2:bg2" File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 110
+Warning (10230): Verilog HDL assignment warning at bitGen2.v(89): truncated value with size 32 to match size of target (8) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen2.v Line: 89
+Warning (10230): Verilog HDL assignment warning at bitGen2.v(90): truncated value with size 32 to match size of target (8) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen2.v Line: 90
+Warning (10230): Verilog HDL assignment warning at bitGen2.v(91): truncated value with size 32 to match size of target (8) File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/bitGen2.v Line: 91
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s6_227 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[0] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s0_353 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[1] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s1_332 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[1] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s2_311 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[0] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s3_290 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[3] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s4_269 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[3] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s5_248 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[0] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13012): Latch TbirdFSM:fsm|unclocked_next_state.s7_206 has unsafe behavior File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/TbirdFSM.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal buttons[2] File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 26
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/shem-/OneDrive/Documents/ECE3710/PreviousAssignments/VGA/topLevel.v Line: 33
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 233 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 35 output pins
+    Info (21061): Implemented 188 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4829 megabytes
+    Info: Processing ended: Tue Nov 28 18:43:49 2023
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:24
+
+

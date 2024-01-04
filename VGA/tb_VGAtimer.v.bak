@@ -1,0 +1,39 @@
+`timescale 1ps/1ps
+module tb_VGAtimer();
+
+
+reg clk, reset;
+reg [2:0] switches;
+reg[3:0] buttons; 
+wire VGA_HS, VGA_VS, VGA_CLK, VGA_SYNC_N, VGA_BLANK_N;
+wire [7:0] VGA_R;
+wire [7:0] VGA_G;
+wire [7:0] VGA_B;
+ topLevel uut ( clk, // 50 MHz from the board
+	 switches,
+	 buttons,
+	 reset,
+	 VGA_HS,
+	 VGA_VS,
+	VGA_CLK,
+	VGA_SYNC_N, // active low and always inactive
+	VGA_BLANK_N, 
+	
+	 VGA_R,
+	 VGA_G,
+	VGA_B);
+
+always #5 begin clk = ~clk; end
+  // Generate the inputs, and check the outputs. 		
+  initial begin
+	reset = 0; 
+	switches = 3'b000;
+	buttons = 4'b0000;
+	
+	#20 
+	reset = 1;
+	
+	
+  end
+	
+endmodule
