@@ -1,5 +1,5 @@
 *************************************************************************************************
-Isaac Kime, Sam Wimmer, Shem Snow, Edison Yang - EISS - Formerly Logic Legends
+Isaac Kime, Sam Wimmer, Shem Snow, Edison Yang
 ECE 3710
 Tetris Final Project
 *************************************************************************************************
