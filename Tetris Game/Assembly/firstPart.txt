@@ -1,0 +1,84 @@
+.start
+movi $0 r0
+movi $0 r1
+movi $0 r2
+movi $0 r3
+movi $0 r4
+movi $0 r5
+movi $0 r6
+movi $0 r7
+movi $0 r8
+movi $0 r9
+movi $0 r10
+movi $0 r11
+movi $0 r12
+movi $0 r13
+movi $0 r14
+movi $0 r15
+movi $0 r16
+.clearBitMap
+cmp $1024, r9
+beq .checkInput
+movi $1003 r9
+stor r0 r9
+addi $1 r9
+buc .clearBitMap
+
+.checkInput
+movi $1023 r9
+load r10 r9
+cmpi $0 r10
+beq .checkInput
+
+.createNewPiece
+//check for death 
+movi 1023 r10
+load r11 r10 ;; r11 top line 
+subi $1 r10
+load r12 r10 ; r12 second from top line 
+andi $48 r11
+cmpi $16 r11 ; anything greater than 16 means pieces there already
+bge .start //death 
+andi $48 r12
+cmpi $16 r12
+bge .start
+
+//reset register pointers 
+movi $5 r1
+movi $20 r2
+mov r3 r4
+andi $12 r4
+
+//determine what block next 
+cmpi $0 r4
+beq .spawnLeftL
+cmpi $1 r4 
+beq .spawnRightL
+buc .spawnBlock
+
+.spawnLeftL
+ori $32 r11
+ori $48 r12
+movi $1022 r10
+stor r12 r10
+addi $1 r10
+stor r11 r10
+buc .gameLoop //TO DO: change to actual thing
+
+.spawnRightL
+ori $32 r11
+ori $48 r12
+movi $1022 r10
+stor r12 r10
+addi $1 r10
+stor r11 r10
+buc .gameLoop //TO DO: change to actual thing
+
+.spawnBlock
+ori $16 r11
+ori $48 r12
+movi $1022 r10
+stor r12 r10
+addi $1 r10
+stor r11 r10
+buc .gameLoop //TO DO: change to actual thing

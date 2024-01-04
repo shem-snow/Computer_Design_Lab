@@ -1,0 +1,7 @@
+-Load data from memory into the regfile;
+-Perform a series of arithmetic and logical operations (set flags);
+-Store the result in memory;
+-reload the result from memory into the regfile;
+-perform arithmetic to set flags;
+-use the flags to do branches (BEQ, BLT, etc.); and
+-write the result into memory and display at the outp
