@@ -1,0 +1,347 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/samwi/Desktop/ECE3710/CPU/simulation/modelsim
+vAlu
+Z1 !s110 1702325726
+!i10b 1
+!s100 E6T^=cdc]I>;nOj:N0Pzd1
+INSI?@RjYB0`Yi@L9eD1Z=1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1701984465
+8C:/Users/samwi/Desktop/ECE3710/CPU/Alu.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/Alu.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1702325726.000000
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/Alu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/Alu.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/samwi/Desktop/ECE3710/CPU
+Z7 tCvgOpt 0
+n@alu
+vbigflipflop
+R1
+!i10b 1
+!s100 d;4j0AXTNdAk6UQG^Ub_D1
+I_9NLPY8Bj:ZYgV[:zCX^H0
+R2
+R0
+Z8 w1702325366
+Z9 8C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v
+Z10 FC:/Users/samwi/Desktop/ECE3710/CPU/cpu.v
+L0 97
+R3
+r1
+!s85 0
+31
+R4
+Z11 !s107 C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v|
+Z12 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/cpu.v|
+!i113 1
+R5
+R6
+R7
+vcmpDecoder
+Z13 !s110 1702325727
+!i10b 1
+!s100 6^mH3IWcQ_7Un7P5:2Vo61
+Idiai??olJQ<ASYHZc1M[53
+R2
+R0
+w1701980692
+8C:/Users/samwi/Desktop/ECE3710/CPU/cmpDecoder.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/cmpDecoder.v
+L0 2
+R3
+r1
+!s85 0
+31
+Z14 !s108 1702325727.000000
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/cmpDecoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/cmpDecoder.v|
+!i113 1
+R5
+R6
+R7
+ncmp@decoder
+vcpu
+R1
+!i10b 1
+!s100 H<=0z@CCD7Kn8iURKZN_@0
+I;Z`gP7TEoA8N6@[A56^1<3
+R2
+R0
+R8
+R9
+R10
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+R11
+R12
+!i113 1
+R5
+R6
+R7
+vdatapath
+R1
+!i10b 1
+!s100 AYT6FIWI11jOHPCliF<aM2
+Ide>Y=01jd1LjNT4Gzm5b01
+R2
+R0
+w1701980446
+8C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/datapath.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/datapath.v|
+!i113 1
+R5
+R6
+R7
+vDecoder
+R1
+!i10b 1
+!s100 dBf0z:1;ODYgZW90ba87g1
+I>_Pih<dc?UZjF6Njee[Ya2
+R2
+R0
+Z15 w1701980447
+8C:/Users/samwi/Desktop/ECE3710/CPU/Decoder.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/Decoder.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/Decoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/Decoder.v|
+!i113 1
+R5
+R6
+R7
+n@decoder
+vexmem2
+R13
+!i10b 1
+!s100 g6aeFfe2d9R8TBPB0?Bbe3
+Ig_Z]gHi>cWlkFg=_eh=nZ3
+R2
+R0
+w1702324063
+8C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v
+L0 1
+R3
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/exmem2.v|
+!i113 1
+R5
+R6
+R7
+vflipflop2
+R1
+!i10b 1
+!s100 BegnKzOe4Cj>e7PB`BYoI3
+I^YJ6Lez26kJ51D91KIJLG2
+R2
+R0
+R8
+R9
+R10
+L0 112
+R3
+r1
+!s85 0
+31
+R4
+R11
+R12
+!i113 1
+R5
+R6
+R7
+vFSM
+R1
+!i10b 1
+!s100 W?IQVKR5zl8^nH@AWhc1g2
+I@SC[@mE1?B9;9gQ[_1BcM2
+R2
+R0
+w1701981679
+8C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/FSM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/FSM.v|
+!i113 1
+R5
+R6
+R7
+n@f@s@m
+vmemory
+R1
+!i10b 1
+!s100 QaN>nn8XHZBFY]@BeR3M62
+INbO`nhN8VDdK11HDziM172
+R2
+R0
+Z16 w1702320243
+Z17 8C:/Users/samwi/Desktop/ECE3710/CPU/memory.v
+Z18 FC:/Users/samwi/Desktop/ECE3710/CPU/memory.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+Z19 !s107 C:/Users/samwi/Desktop/ECE3710/CPU/memory.v|
+Z20 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/memory.v|
+!i113 1
+R5
+R6
+R7
+vps2FlipFlop
+R1
+!i10b 1
+!s100 7i?2O>G28=YTfFLnoW81Y0
+I42SJideMh4BE?gHW_POm31
+R2
+R0
+R16
+R17
+R18
+L0 103
+R3
+r1
+!s85 0
+31
+R4
+R19
+R20
+!i113 1
+R5
+R6
+R7
+nps2@flip@flop
+vPS2Handler
+R13
+!i10b 1
+!s100 kebOdLl4i9R<G;[6_Xeha1
+IDNLJ5Oen20D`_zA]g>]P`1
+R2
+R0
+w1701983515
+8C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v
+L0 1
+R3
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/PS2Handler.v|
+!i113 1
+R5
+R6
+R7
+n@p@s2@handler
+vregfile
+R13
+!i10b 1
+!s100 1W`doRiC:aPbzA^T:L`Ch2
+I6ggmZRfg2[4zn6AW=lZ<]2
+R2
+R0
+w1702322675
+8C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/regfile.v
+L0 12
+R3
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/regfile.v|
+!i113 1
+R5
+R6
+R7
+vregMux
+R1
+!i10b 1
+!s100 Ya1HM>ZEd:YC867YdjljR0
+Io]?gRY:HiH]hN?[J:VCi;3
+R2
+R0
+R15
+8C:/Users/samwi/Desktop/ECE3710/CPU/regMux.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/regMux.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/regMux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/regMux.v|
+!i113 1
+R5
+R6
+R7
+nreg@mux
+vtb_cpu
+R13
+!i10b 1
+!s100 NX2FG9WQkCn6c4@b37j500
+I8<1QjNa<^:h8CD_X2z^?;0
+R2
+R0
+w1702325561
+8C:/Users/samwi/Desktop/ECE3710/CPU/tb_cpu.v
+FC:/Users/samwi/Desktop/ECE3710/CPU/tb_cpu.v
+L0 2
+R3
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/samwi/Desktop/ECE3710/CPU/tb_cpu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/samwi/Desktop/ECE3710/CPU|C:/Users/samwi/Desktop/ECE3710/CPU/tb_cpu.v|
+!i113 1
+R5
+R6
+R7
